@@ -1,8 +1,11 @@
 name: Deploy Opename to Pages
+
 on:
   push:
     branches: [ "main" ]
   workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"   # hourly-ish sync
 
 permissions:
   contents: read
@@ -19,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Bring in MeritRank docs (public repo assumed)
+      # Pull docs from MeritRank (optional; harmless if absent)
       - name: Checkout MeritRank
         uses: actions/checkout@v4
         with:

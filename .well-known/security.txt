@@ -1,0 +1,3 @@
+Contact: mailto:security@opename.org
+Policy: https://opename.org/docs/
+Preferred-Languages: en

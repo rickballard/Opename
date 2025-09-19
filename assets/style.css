@@ -10,3 +10,7 @@ main { max-width:980px; margin:40px auto; padding:0 20px }
 .card { border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:18px; margin:16px 0; background:rgba(255,255,255,.02) }
 footer { color:var(--muted); padding:40px 20px; border-top:1px solid rgba(255,255,255,.06); text-align:center }
 code { background:rgba(255,255,255,.06); padding:2px 6px; border-radius:6px }
+
+/* logo in brand */
+header .brand{display:inline-flex;align-items:center;gap:.5rem;font-weight:700}
+header .brand img{height:24px;width:24px;display:block}

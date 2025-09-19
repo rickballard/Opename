@@ -18,10 +18,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      # Bring in MeritRank docs (public repo assumed)
+      - name: Checkout MeritRank
+        uses: actions/checkout@v4
+        with:
+          repository: rickballard/MeritRank
+          path: _meritrank
+
+      - name: Sync docs from MeritRank/docs/site -> Opename/docs
+        run: |
+          mkdir -p docs
+          if [ -d "_meritrank/docs/site" ]; then
+            rsync -av --delete "_meritrank/docs/site/" "docs/"
+          else
+            echo "No _meritrank/docs/site to sync; skipping."
+          fi
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
